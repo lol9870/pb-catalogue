@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratham Bioseuticals - Product Catalogue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom right, #f0fdf4, #ffffff, #ecfdf5);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(to right, #15803d, #059669);
+            color: white;
+            padding: 4rem 1.5rem;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-title h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .header-subtitle {
+            color: #a7f3d0;
+            font-size: 1.125rem;
+        }
+
+        .header-description {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            color: #d1fae5;
+            max-width: 48rem;
+        }
+
+        .leaf-icon {
+            width: 3rem;
+            height: 3rem;
+            flex-shrink: 0;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(to right, #f0fdf4, #ecfdf5);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 3rem 0;
+            border: 1px solid #bbf7d0;
+        }
+
+        .about-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #15803d;
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-card ul {
+            list-style: none;
+        }
+
+        .about-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .methodology-box {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 1rem;
+            background: #f0fdf4;
+            border-radius: 0.5rem;
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #16a34a;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-text {
+            font-size: 0.875rem;
+            color: #374151;
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .why-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .why-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .why-card h4 {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .why-card p {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        /* Three Pillars */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pillar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .pillar-card.green { border-top: 4px solid #22c55e; }
+        .pillar-card.emerald { border-top: 4px solid #10b981; }
+        .pillar-card.dark-green { border-top: 4px solid #16a34a; }
+
+        .pillar-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-card p {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        /* Search and Filter */
+        .search-filter {
+            margin-bottom: 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #9ca3af;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #22c55e;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid #e5e7eb;
+            background: white;
+            color: #374151;
+        }
+
+        .filter-btn:hover {
+            background: #f0fdf4;
+        }
+
+        .filter-btn.active {
+            background: #16a34a;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: #16a34a;
+        }
+
+        .filter-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        /* Product Count */
+        .product-count {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-count span {
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+            border: 1px solid #f3f4f6;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 320px;
+            object-fit: contain;
+            background: #f3f4f6;
+        }
+
+        .product-header {
+            background: linear-gradient(to right, #16a34a, #059669);
+            padding: 1.5rem;
+            color: white;
+        }
+
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-title {
+            font-size: 0.875rem;
+            color: #a7f3d0;
+        }
+
+        .product-tagline {
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            color: #d1fae5;
+        }
+
+        .product-body {
+            padding: 1.5rem;
+        }
+
+        .benefits-section {
+            margin-bottom: 1rem;
+        }
+
+        .benefits-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 0.25rem;
+        }
+
+        .check-mark {
+            color: #22c55e;
+            margin-top: 0.125rem;
+        }
+
+        .extra-details {
+            padding-top: 1rem;
+            border-top: 1px solid #f3f4f6;
+            margin-top: 1rem;
+        }
+
+        .detail-section {
+            margin-bottom: 1rem;
+        }
+
+        .detail-section h4 {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-section p {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .toggle-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f0fdf4;
+            color: #15803d;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+
+        .toggle-btn:hover {
+            background: #dcfce7;
+        }
+
+        .chevron {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #4ade80;
+        }
+
+        .footer p, .footer li {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.8;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .disclaimer {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            color: #6b7280;
+            font-size: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-title h1 {
+                font-size: 1.75rem;
+            }
+            
+            .header-description {
+                font-size: 1rem;
+            }
+
+            .about-title {
+                font-size: 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <svg class="leaf-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+                <div>
+                    <h1>PRATHAM BIOSEUTICALS</h1>
+                    <p class="header-subtitle">Healing with Herbs</p>
+                </div>
+            </div>
+            <p class="header-description">
+                Ancient Wisdom Meets Modern Science - Revolutionizing health and wellness through Ayurvedic principles and scientific innovation
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- About Section -->
+        <div class="about-section">
+            <h2 class="about-title">
+                <svg class="leaf-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+                About Pratham Bioseuticals
+            </h2>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Who We Are</h3>
+                    <p>
+                        Pratham Bioseuticals stands at the intersection of ancient wisdom and modern science. We are a pioneering bioseuticals company dedicated to revolutionizing health and wellness through the perfect fusion of time-honored Ayurvedic principles and cutting-edge scientific innovations.
+                    </p>
+                    <p>
+                        Our name "Pratham" means "first" or "foremost" in Sanskrit, reflecting our commitment to being leaders in natural health solutions that prioritize your well-being above all else.
+                    </p>
+                </div>
+                
+                <div class="about-card">
+                    <h3>What We Do</h3>
+                    <p>
+                        We specialize in developing biological and pharmaceutical products that combine natural biomolecules, extracts, and traditional herbs with modern pharmaceutical standards. Each formulation is:
+                    </p>
+                    <ul>
+                        <li>
+                            <span style="color: #16a34a; font-weight: bold;">•</span>
+                            <span><strong>Standardized:</strong> Consistent potency and quality in every batch</span>
+                        </li>
+                        <li>
+                            <span style="color: #16a34a; font-weight: bold;">•</span>
+                            <span><strong>Purified:</strong> Advanced processing for optimal therapeutic benefits</span>
+                        </li>
+                        <li>
+                            <span style="color: #16a34a; font-weight: bold;">•</span>
+                            <span><strong>Formulated:</strong> Precisely crafted for specific health outcomes</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="methodology-box">
+                <h3 style="font-size: 1.25rem; font-weight: bold; color: #15803d; margin-bottom: 1rem;">Our Groundbreaking Methodology</h3>
+                <p style="color: #374151; line-height: 1.8; margin-bottom: 1rem;">
+                    We've perfected a revolutionary approach that harmonizes ancient herbal knowledge with state-of-the-art pharmaceutical procedures. This ensures that every product harnesses the full power of nature while meeting the most rigorous standards of purity, safety, and efficacy.
+                </p>
+                <div class="methodology-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p class="step-text">Select Premium Botanicals</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p class="step-text">Purify & Standardize</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p class="step-text">Scientific Testing</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p class="step-text">Precise Formulation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="font-size: 1.25rem; font-weight: bold; color: #15803d; margin-bottom: 1rem;">Why Choose Pratham Bioseuticals?</h3>
+                <div class="why-choose-grid">
+                    <div class="why-card">
+                        <div class="why-card-header">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            <h4>Quality Assurance</h4>
+                        </div>
+                        <p>Rigorous testing at every stage ensures pharmaceutical-grade quality. Our products undergo multiple quality checks for purity, potency, and safety.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <div class="why-card-header">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                            <h4>Ayurvedic Heritage</h4>
+                        </div>
+                        <p>5,000+ years of Ayurvedic wisdom refined through modern scientific research. Deep understanding of holistic health and natural healing.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <div class="why-card-header">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <h4>Innovation Driven</h4>
+                        </div>
+                        <p>Cutting-edge research and development. We continuously innovate to create more effective formulations using the latest scientific methods.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <div class="why-card-header">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                            <h4>Customer-Centric</h4>
+                        </div>
+                        <p>Customized solutions designed for your specific needs. We work closely with clients to develop tailored formulations.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <div class="why-card-header">
+                            <span style="font-size: 1.5rem;">🌱</span>
+                            <h4>Sustainable Sourcing</h4>
+                        </div>
+                        <p>Responsible sourcing and eco-conscious manufacturing. We prioritize organic ingredients and sustainable practices.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <div class="why-card-header">
+                            <span style="font-size: 1.5rem;">⚡</span>
+                            <h4>Proven Results</h4>
+                        </div>
+                        <p>Formulations backed by traditional use and modern clinical insights. Real health benefits you can trust.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three Pillars -->
+        <div class="pillars">
+            <div class="pillar-card green">
+                <svg class="pillar-icon" style="color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+                <h3>Pure & Sourced</h3>
+                <p>Ayurvedic formulations from well-sourced ingredients with advanced processing</p>
+            </div>
+            <div class="pillar-card emerald">
+                <svg class="pillar-icon" style="color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+                <h3>Rigorously Tested</h3>
+                <p>Every product meets high standards for effectiveness, purity, and safety</p>
+            </div>
+            <div class="pillar-card dark-green">
+                <svg class="pillar-icon" style="color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+                <h3>Customizable Solutions</h3>
+                <p>Tailored products designed to meet specific customer needs</p>
+            </div>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="search-filter">
+            <div class="search-box">
+                <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search products...">
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">
+                    <svg class="filter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    All Products
+                </button>
+                <button class="filter-btn" data-category="wellness">
+                    <svg class="filter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                    Health & Wellness
+                </button>
+                <button class="filter-btn" data-category="specialty">
+                    <svg class="filter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    Specialty Care
+                </button>
+                <button class="filter-btn" data-category="ayurvedic">
+                    <svg class="filter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                    </svg>
+                    Pure Ayurvedic
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Count -->
+        <div class="product-count">
+            Showing <span id="productCount">22</span> products
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Our Approach</h3>
+                    <p>
+                        We harmonize ancient herbal knowledge with pharmaceutical procedures, ensuring every product harnesses nature's power while meeting rigorous standards.
+                    </p>
+                </div>
+                <div>
+                    <h3>For Business Partners</h3>
+                    <ul>
+                        <li>• Customized formulations available</li>
+                        <li>• Bulk orders for suppliers</li>
+                        <li>• Quality certifications provided</li>
+                        <li>• Competitive wholesale pricing</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li>• Specialized Health Solutions (12)</li>
+                        <li>• Pure Ayurvedic Herbs (10)</li>
+                        <li>• Wellness & Nutrition</li>
+                        <li>• Custom Formulations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="disclaimer">
+                    ⚕️ Important: Consult a healthcare professional before using these products, especially if you have underlying health conditions or take medications.
+                </p>
+                <p class="copyright">
+                    © 2025 Pratham Bioseuticals. All rights reserved. | Standardized, Purified & Formulated for Specific Health Benefits
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = [
+            {
+                id: 1,
+                name: 'WinNutri-J',
+                title: 'Joint Health Formula',
+                category: 'specialty',
+                tagline: 'Move with Freedom',
+                benefits: ['Cartilage nutritional support', 'Repairs tears & injuries', 'Pain-free movement', 'Enhanced mobility & flexibility'],
+                keyIngredients: 'Herbal joint support complex',
+                applications: 'Athletes, seniors, active individuals, individuals suffering from arthritis',
+                image: './J.png'
+            },
+            {
+                id: 2,
+                name: 'WinNutri-Cal',
+                title: 'Bone Health Formula',
+                category: 'specialty',
+                tagline: 'Build Strength from Within',
+                benefits: ['Natural calcium & phosphorus', 'Improves bone density', 'Provides connective tissue support', 'Supports bone health'],
+                keyIngredients: 'Herbo-mineral complex',
+                applications: 'Osteoporosis prevention, bone health maintenance',
+                image: './cal_final.png'
+            },
+            {
+                id: 3,
+                name: 'WinNutri-F',
+                title: 'Female Health Formula',
+                category: 'specialty',
+                tagline: 'Empowering Women Wellness',
+                benefits: ['helpful in PCOD treatment', 'Menstrual health & PMS relief', 'Fertility support', 'Overall female health'],
+                keyIngredients: 'Herbal women health blend',
+                applications: 'Menstrual irregularities, perimenopausal symptoms, PCOD, infertility',
+                image: './F.png'
+            },
+            {
+                id: 4,
+                name: 'WinNutri-Organic',
+                title: 'Anti-Oxidant Formula',
+                category: 'wellness',
+                tagline: 'Cellular Defense & Renewal',
+                benefits: ['Immunity enhancement', 'Cellular regeneration', 'Post-chemotherapy support', 'Chronic fatigue relief', 'Anti-inflammatory'],
+                keyIngredients: 'Traditional immunity herbs with modern formulation',
+                applications: 'Auto-immune disorders, compromised immunity, cancer palliative care',
+                image: './organic.png'
+            },
+            {
+                id: 5,
+                name: 'WinNutri-HS',
+                title: 'Hair Nutrition',
+                category: 'wellness',
+                tagline: 'Nourish from Root to Tip',
+                benefits: ['Promotes hair growth', 'Strengthens hair strands', 'Improves texture & shine', 'Prevents premature greying', 'Nourishes follicles'],
+                keyIngredients: 'Essential vitamins, minerals & nutrients',
+                applications: 'Hair thinning, hair fall, split ends, overall hair health'
+            },
+            {
+                id: 6,
+                name: 'WinNutri Hair Serum',
+                title: 'Topical Hair Care',
+                category: 'wellness',
+                tagline: 'Strength. Shine. Serum That Works',
+                benefits: ['Reduces split ends', 'Prevents breakage', 'Controls dandruff', 'darkens the hair colour', 'Enhances shine & luster'],
+                keyIngredients: 'Herbs + natural biotin',
+                applications: 'Daily hair care, scalp health'
+            },
+            {
+                id: 7,
+                name: 'WinNutri-M',
+                title: 'Male Vitality Tonic',
+                category: 'specialty',
+                tagline: 'Peak Performance & Vitality',
+                benefits: ['Boosts testosterone levels', 'Enhances fertility', 'Improves sperm quality', 'Supports reproductive health', 'Increases vitality'],
+                keyIngredients: 'Potent male health herbs',
+                applications: 'Male reproductive health, vitality enhancement',
+                image: './m.png'
+            },
+            {
+                id: 8,
+                name: 'WinNutri Thyro-Health',
+                title: 'Thyroid Support',
+                category: 'specialty',
+                tagline: 'Balance Your Metabolism',
+                benefits: ['Promotes thyroid function', 'Boosts metabolism', 'Manages hypothyroidism', 'Enhances overall well-being'],
+                keyIngredients: 'Herbal thyroid support blend',
+                applications: 'Thyroid hormone imbalance, metabolic issues',
+                image: './th.png'
+            },
+            {
+                id: 9,
+                name: 'WinNutri Liver Health',
+                title: 'Liver Detox & Support',
+                category: 'wellness',
+                tagline: 'Natural Detoxification',
+                benefits: ['Supports natural liver function', 'Promotes detoxification', 'Stimulates appetite', 'Overall wellness support'],
+                keyIngredients: 'Natural liver support complex',
+                applications: 'Liver health maintenance, detox support, promotes appetite'
+            },
+            {
+                id: 10,
+                name: 'WinNutri Zero Fat',
+                title: 'Weight Management',
+                category: 'wellness',
+                tagline: 'Achieve Your Ideal Weight',
+                benefits: ['Boosts fat metabolism', 'Reduces body fat', 'Weight loss support', 'Improves digestion'],
+                keyIngredients: 'Herbal weight management blend',
+                applications: 'Weight loss goals, metabolic enhancement'
+            },
+            {
+                id: 11,
+                name: 'WinNutri Respiratory Health',
+                title: 'Breath Support',
+                category: 'wellness',
+                tagline: 'Breathe Easy, Live Fully',
+                benefits: ['Supports respiratory wellness', 'Promotes clear breathing', 'Maintains lung function'],
+                keyIngredients: 'Natural respiratory support blend',
+                applications: 'Respiratory health, breathing difficulties, seasonal support',
+                image: './resp.png'
+            },
+            {
+                id: 12,
+                name: 'WinNutri Gluco Health',
+                title: 'Blood Sugar Management',
+                category: 'specialty',
+                tagline: 'Balanced Sugar, Balanced Life',
+                benefits: ['Improves insulin sensitivity', 'Promotes insulin secretion', 'Improves sugar metabolism', 'Reduces blood sugar levels'],
+                keyIngredients: 'Natural blood sugar support herbs',
+                applications: 'Blood sugar management, diabetic support, frequent urination'
+            },
+            {
+                id: 13,
+                name: 'WinNutri Amla',
+                title: 'Indian Gooseberry',
+                category: 'ayurvedic',
+                tagline: 'Vitamin C Powerhouse',
+                benefits: ['Boosts immunity', 'Supports digestive health', 'overall health', 'Skin, hair & eye health'],
+                keyIngredients: 'Pure Amla (Emblica officinalis)',
+                applications: 'Overall health, immunity booster'
+            },
+            {
+                id: 14,
+                name: 'WinNutri Ashwagandha',
+                title: 'Adaptogenic Herb',
+                category: 'ayurvedic',
+                tagline: 'Ancient Stress Relief',
+                benefits: ['Reduces stress & anxiety', 'Improves sleep quality', 'Enhances cognitive function', 'Boosts energy', 'Immune support'],
+                keyIngredients: 'Pure Ashwagandha (Withania somnifera)',
+                applications: 'Stress management, energy enhancement'
+            },
+            {
+                id: 15,
+                name: 'WinNutri Shatavari',
+                title: 'Women Health',
+                category: 'ayurvedic',
+                tagline: 'The Queen of Herbs',
+                benefits: ['Reproductive health support', 'Hormonal balance', 'Menopausal symptom relief', 'Lactation support', 'Immunity booster'],
+                keyIngredients: 'Pure Shatavari (Asparagus racemosus)',
+                applications: 'Women health, hormonal balance'
+            },
+            {
+                id: 16,
+                name: 'WinNutri Tulsi',
+                title: 'Holy Basil',
+                category: 'ayurvedic',
+                tagline: 'Sacred Healing',
+                benefits: ['Immune support', 'Anti-inflammatory', 'Respiratory health', 'Cognitive enhancement'],
+                keyIngredients: 'Pure Tulsi (Ocimum sanctum)',
+                applications: 'Daily wellness, Immunity booster'
+            },
+            {
+                id: 17,
+                name: 'WinNutri Yashtimadhu',
+                title: 'Licorice Root',
+                category: 'ayurvedic',
+                tagline: 'Soothing Wellness',
+                benefits: ['Anti-inflammatory', 'Supports skin health', 'Respiratory support', 'Digestive relief'],
+                keyIngredients: 'Pure Yashtimadhu (Glycyrrhiza glabra)',
+                applications: 'Digestive issues, skin conditions, respiratory health'
+            },
+            {
+                id: 18,
+                name: 'WinNutri Brahmi',
+                title: 'Memory Enhancer',
+                category: 'ayurvedic',
+                tagline: 'Brain Health Booster',
+                benefits: ['Supports brain health', 'Improves learning', 'Enhances memory', 'Reduces stress & anxiety', 'Antioxidant properties'],
+                keyIngredients: 'Pure Brahmi (Bacopa monnieri)',
+                applications: 'Cognitive health, memory support, students'
+            },
+            {
+                id: 19,
+                name: 'WinNutri Triphala',
+                title: 'Three Fruit Blend',
+                category: 'ayurvedic',
+                tagline: 'Complete Digestive Care',
+                benefits: ['Digestive health', 'Antioxidant properties', 'Anti-inflammatory', 'Detoxification', 'Immune support'],
+                keyIngredients: 'Amalaki (Emblica officinalis), Haritaki (Terminalia chebula), Bibhitaki (Terminalia bellirica)',
+                applications: 'Digestive issues, overall wellness, eye care'
+            },
+            {
+                id: 20,
+                name: 'WinNutri Curcumin+Piperine',
+                title: 'Enhanced Turmeric',
+                category: 'ayurvedic',
+                tagline: 'Golden Healing Power',
+                benefits: ['Powerful antioxidant', 'Anti-inflammatory', 'Aids digestion', 'Boosts immunity', 'Potential anti-cancer properties'],
+                keyIngredients: 'Curcumin + Piperine (enhanced absorption)',
+                applications: 'Inflammation, immunity, overall health, cancer palliative care'
+            },
+            {
+                id: 21,
+                name: 'WinNutri Hadjod',
+                title: 'Bone Healer',
+                category: 'ayurvedic',
+                tagline: 'Natural Bone Support',
+                benefits: ['Supports bone growth', 'Fracture healing', 'Anti-inflammatory', 'Cartilage support', 'Bone density support'],
+                keyIngredients: 'Pure Hadjod (Cissus quadrangularis)',
+                applications: 'Bone fractures, calcium deficiency, cartilage degeneration'
+            },
+            {
+                id: 22,
+                name: 'WinNutri Arjuna',
+                title: 'Heart Health',
+                category: 'ayurvedic',
+                tagline: 'Cardiovascular Care',
+                benefits: ['Cardiovascular support', 'Lowers cholesterol', 'Anti-inflammatory', 'Liver support', 'Antioxidant properties'],
+                keyIngredients: 'Pure Arjuna (Terminalia arjuna)',
+                applications: 'Heart health, cholesterol management'
+            }
+        ];
+
+        let currentCategory = 'all';
+        let expandedProducts = new Set();
+
+        function renderProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const grid = document.getElementById('productsGrid');
+            
+            const filteredProducts = products.filter(product => {
+                const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
+                                     product.title.toLowerCase().includes(searchTerm) ||
+                                     product.tagline.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
+
+            document.getElementById('productCount').textContent = filteredProducts.length;
+
+            grid.innerHTML = filteredProducts.map(product => {
+                const isExpanded = expandedProducts.has(product.id);
+                const visibleBenefits = isExpanded ? product.benefits : product.benefits.slice(0, 3);
+                
+                return  '<div class="product-card">' +
+                        '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
+                        '<div class="product-header">' +
+                        '<h3 class="product-name">' + product.name + '</h3>' +
+                        '<p class="product-title">' + product.title + '</p>' +
+                        '<p class="product-tagline">"' + product.tagline + '"</p>' +
+                    '</div>' +
+                    '<div class="product-body">' +
+                        '<div class="benefits-section">' +
+                            '<h4 class="benefits-title">' +
+                                '<svg style="width: 1rem; height: 1rem; color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>' +
+                                '</svg>' +
+                                'Key Benefits' +
+                            '</h4>' +
+                            '<ul class="benefits-list">' +
+                                visibleBenefits.map(benefit => 
+                                    '<li class="benefit-item">' +
+                                        '<span class="check-mark">✓</span>' +
+                                        '<span>' + benefit + '</span>' +
+                                    '</li>'
+                                ).join('') +
+                            '</ul>' +
+                        '</div>' +
+                        (isExpanded ? 
+                            '<div class="extra-details">' +
+                                '<div class="detail-section">' +
+                                    '<h4>Key Ingredients</h4>' +
+                                    '<p>' + product.keyIngredients + '</p>' +
+                                '</div>' +
+                                '<div class="detail-section">' +
+                                    '<h4>Applications</h4>' +
+                                    '<p>' + product.applications + '</p>' +
+                                '</div>' +
+                            '</div>'
+                        : '') +
+                        '<button class="toggle-btn" onclick="toggleProduct(' + product.id + ')">' +
+                            (isExpanded ? 
+                                '<svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>' +
+                                '</svg>' +
+                                'Show Less'
+                            : 
+                                '<svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>' +
+                                '</svg>' +
+                                'View Details'
+                            ) +
+                        '</button>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+
+        function toggleProduct(productId) {
+            if (expandedProducts.has(productId)) {
+                expandedProducts.delete(productId);
+            } else {
+                expandedProducts.add(productId);
+            }
+            renderProducts();
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentCategory = this.dataset.category;
+                renderProducts();
+            });
+        });
+
+        // Search input
+        document.getElementById('searchInput').addEventListener('input', renderProducts);
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>
