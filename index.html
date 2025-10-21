@@ -773,7 +773,7 @@
 
     <script>
         // Product data
-        const products = [
+                const products = [
             {
                 id: 1,
                 name: 'WinNutri-J',
@@ -1018,6 +1018,7 @@
             }
         ];
 
+
         let currentCategory = 'all';
         let expandedProducts = new Set();
 
@@ -1039,9 +1040,9 @@
                 const isExpanded = expandedProducts.has(product.id);
                 const visibleBenefits = isExpanded ? product.benefits : product.benefits.slice(0, 3);
                 
-                return '<div class="product-card">' +
-                    '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
-                    '<div class="product-header">' +
+                return  '<div class="product-card">' +
+                        '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
+                        '<div class="product-header">' +
                         '<h3 class="product-name">' + product.name + '</h3>' +
                         '<p class="product-title">' + product.title + '</p>' +
                         '<p class="product-tagline">"' + product.tagline + '"</p>' +
@@ -1090,6 +1091,7 @@
                         '</button>' +
                     '</div>' +
                 '</div>';
+            }).join('');
         }
 
         function toggleProduct(productId) {
