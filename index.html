@@ -1019,6 +1019,7 @@
         ];
 
         let currentCategory = 'all';
+        let expandedProducts = new Set();
 
         function renderProducts() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -1035,30 +1036,34 @@
             document.getElementById('productCount').textContent = filteredProducts.length;
 
             grid.innerHTML = filteredProducts.map(product => {
-                return  '<div class="product-card">' +
-                        '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
-                        '<div class="product-header">' +
-                            '<h3 class="product-name">' + product.name + '</h3>' +
-                            '<p class="product-title">' + product.title + '</p>' +
-                            '<p class="product-tagline">"' + product.tagline + '"</p>' +
+                const isExpanded = expandedProducts.has(product.id);
+                const visibleBenefits = isExpanded ? product.benefits : product.benefits.slice(0, 3);
+                
+                return '<div class="product-card">' +
+                    '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
+                    '<div class="product-header">' +
+                        '<h3 class="product-name">' + product.name + '</h3>' +
+                        '<p class="product-title">' + product.title + '</p>' +
+                        '<p class="product-tagline">"' + product.tagline + '"</p>' +
+                    '</div>' +
+                    '<div class="product-body">' +
+                        '<div class="benefits-section">' +
+                            '<h4 class="benefits-title">' +
+                                '<svg style="width: 1rem; height: 1rem; color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>' +
+                                '</svg>' +
+                                'Key Benefits' +
+                            '</h4>' +
+                            '<ul class="benefits-list">' +
+                                visibleBenefits.map(benefit => 
+                                    '<li class="benefit-item">' +
+                                        '<span class="check-mark">✓</span>' +
+                                        '<span>' + benefit + '</span>' +
+                                    '</li>'
+                                ).join('') +
+                            '</ul>' +
                         '</div>' +
-                        '<div class="product-body">' +
-                            '<div class="benefits-section">' +
-                                '<h4 class="benefits-title">' +
-                                    '<svg style="width: 1rem; height: 1rem; color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
-                                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>' +
-                                    '</svg>' +
-                                    'Key Benefits' +
-                                '</h4>' +
-                                '<ul class="benefits-list">' +
-                                    product.benefits.map(benefit => 
-                                        '<li class="benefit-item">' +
-                                            '<span class="check-mark">✓</span>' +
-                                            '<span>' + benefit + '</span>' +
-                                        '</li>'
-                                    ).join('') +
-                                '</ul>' +
-                            '</div>' +
+                        (isExpanded ? 
                             '<div class="extra-details">' +
                                 '<div class="detail-section">' +
                                     '<h4>Key Ingredients</h4>' +
@@ -1068,9 +1073,32 @@
                                     '<h4>Applications</h4>' +
                                     '<p>' + product.applications + '</p>' +
                                 '</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>';
+                            '</div>'
+                        : '') +
+                        '<button class="toggle-btn" onclick="toggleProduct(' + product.id + ')">' +
+                            (isExpanded ? 
+                                '<svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>' +
+                                '</svg>' +
+                                'Show Less'
+                            : 
+                                '<svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>' +
+                                '</svg>' +
+                                'View Details'
+                            ) +
+                        '</button>' +
+                    '</div>' +
+                '</div>';
+        }
+
+        function toggleProduct(productId) {
+            if (expandedProducts.has(productId)) {
+                expandedProducts.delete(productId);
+            } else {
+                expandedProducts.add(productId);
+            }
+            renderProducts();
         }
 
         // Filter buttons
