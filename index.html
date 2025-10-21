@@ -1038,9 +1038,8 @@
             document.getElementById('productCount').textContent = filteredProducts.length;
 
             grid.innerHTML = filteredProducts.map(product => {
-                const isExpanded = expandedProducts.has(product.id);
-                // const visibleBenefits = isExpanded ? product.benefits : product.benefits.slice(0, 3);
-                const visibleBenefits = product.benefits.slice(0, 3);
+                const isExpanded = true;
+                const visibleBenefits = isExpanded ? product.benefits : product.benefits.slice(0, 3);
                 
                 return  '<div class="product-card">' +
                         '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
